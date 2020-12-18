@@ -1,26 +1,48 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_ffmpeg (0.3.0):
+    - Flutter
+    - flutter_ffmpeg/https (= 0.3.0)
+  - flutter_ffmpeg/https (0.3.0):
+    - Flutter
+    - mobile-ffmpeg-https (= 4.4)
   - image_picker (0.0.1):
+    - Flutter
+  - mobile-ffmpeg-https (4.4)
+  - path_provider (0.0.1):
     - Flutter
   - video_player (0.0.1):
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - flutter_ffmpeg (from `.symlinks/plugins/flutter_ffmpeg/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - video_player (from `.symlinks/plugins/video_player/ios`)
+
+SPEC REPOS:
+  trunk:
+    - mobile-ffmpeg-https
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  flutter_ffmpeg:
+    :path: ".symlinks/plugins/flutter_ffmpeg/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
   video_player:
     :path: ".symlinks/plugins/video_player/ios"
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_ffmpeg: 657ce8a1502c3d25bf34efc58b380b248836f772
   image_picker: 9c3312491f862b28d21ecd8fdf0ee14e601b3f09
+  mobile-ffmpeg-https: 311fc4a8f671cf36d1d6b8f421e8246b790978d9
+  path_provider: d1a68c4065ce2e0f6fd03f8a46d698525dc79f06
   video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
 
 PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
