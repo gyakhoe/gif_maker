@@ -16,6 +16,7 @@ samples, guidance on mobile development, and a full API reference.
 
 1. image_picker: ^0.6.7+15
 2. video_player: ^1.0.1
+3. flutter_ffmpeg: ^0.3.0
 
 # Add config changes to info.plist file
 
@@ -37,3 +38,9 @@ samples, guidance on mobile development, and a full API reference.
 # Add config changes to AndroidManifest.xml
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
+## References
+
+1. http://ffmpeg.tv
+2. https://fireship.io/lessons/wasm-video-to-gif/
+3. https://engineering.giphy.com/how-to-make-gifs-with-ffmpeg/
