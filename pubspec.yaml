@@ -11,8 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.0
+  image_picker: ^0.6.7+15
+  video_player: ^1.0.1
 
 dev_dependencies:
   flutter_test:
