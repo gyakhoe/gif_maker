@@ -41,5 +41,23 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+
+	<!-- Image picker config starts -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access to photos is required </string>
+	<key>NSCameraUsageDescription</key>
+	<string>Access to camera is required</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Access to microphone is required</string> 
+	<!-- Image picker config ends -->
+
+	<!-- Video player config starts -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<!-- Video player config ends -->
+
 </dict>
 </plist>
