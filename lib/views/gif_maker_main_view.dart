@@ -2,13 +2,22 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ffmpeg/flutter_ffmpeg.dart';
-import 'package:gif_maker/views/gif_maker_child_view.dart';
-
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
+
+import 'package:gif_maker/views/gif_maker_child_view.dart';
 
 class GifMakerMainView extends StatefulWidget {
   final String assetImagePath = 'assets/images/photo-placeholder-250.png';
+  final Directory _gifDirectory;
+  final Function _onGifGeneratecallback;
+
+  const GifMakerMainView({
+    Key key,
+    @required Directory gifDirectory,
+    @required Function onGifGenerateCallback,
+  })  : _gifDirectory = gifDirectory,
+        _onGifGeneratecallback = onGifGenerateCallback,
+        super(key: key);
   @override
   _GifMakerMainState createState() => _GifMakerMainState();
 }
@@ -18,29 +27,14 @@ enum NatureOfFile { Vidoe, Asset, Gif, Identifying }
 class _GifMakerMainState extends State<GifMakerMainView> {
   String _filePath;
   NatureOfFile _fileType;
-  Directory gifDirectory;
   FlutterFFmpeg _flutterFFmpeg;
 
   @override
   void initState() {
     super.initState();
-
     _filePath = widget.assetImagePath;
-
     _fileType = NatureOfFile.Asset;
     _flutterFFmpeg = FlutterFFmpeg();
-    getApplicationDocumentsDirectory().then((value) {
-      gifDirectory = Directory(value.path + '/gif');
-      gifDirectory.exists().then((exists) {
-        if (!exists) {
-          print('Gif directory not available. Creating one');
-          gifDirectory.create();
-        } else {
-          print('Gif directory path ${gifDirectory.path}');
-          print('Directory available');
-        }
-      });
-    });
   }
 
   @override
@@ -85,7 +79,7 @@ class _GifMakerMainState extends State<GifMakerMainView> {
       setState(() {
         _fileType = NatureOfFile.Identifying;
       });
-      final gifOutputFile = gifDirectory.path +
+      final gifOutputFile = widget._gifDirectory.path +
           '/' +
           DateTime.now().millisecondsSinceEpoch.toString() +
           '.gif';
@@ -105,9 +99,12 @@ class _GifMakerMainState extends State<GifMakerMainView> {
       _flutterFFmpeg.executeWithArguments(arguments).then((result) {
         setState(() {
           if (result == 0) {
+            print('Gif created successfully');
             _filePath = gifOutputFile;
             _fileType = NatureOfFile.Gif;
+            widget._onGifGeneratecallback();
           } else {
+            print('GIF failed to create');
             _filePath = widget.assetImagePath;
             _fileType = NatureOfFile.Asset;
             _showErrorSnackBar(

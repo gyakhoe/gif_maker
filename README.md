@@ -1,6 +1,8 @@
 # gif_maker
 
 This project will take in vidoe file from gallery and convert them to GIF using FFMEG.
+It contains two view screen one for uploading video and converting it to GIF. Other screen
+is for displaying all the generated GIFs in GRID view
 
 ## Getting Started
 
@@ -38,6 +40,12 @@ samples, guidance on mobile development, and a full API reference.
 # Add config changes to AndroidManifest.xml
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
+## Improvements required
+
+1. Moving from second tab to firt tab, the data in first tab is lost
+2. Aspect ratio on grid view could be modifed to acomodate the gif's aspect ratio
+3. Tap open the gif and share functionality is required, aslo longpress to share can aslo be added
 
 ## References
 
