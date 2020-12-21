@@ -5,6 +5,7 @@ It contains two view screen one for uploading video and converting it to GIF. Ot
 is for displaying all the generated GIFs in GRID view
 
 ## Getting Started
+You can checkout my [Youtube Video Walkthrough](https://youtu.be/ynTZpAIJRM8)
 
 ## You should know how to setup Flutter app, view the official doc for reference
 
