@@ -1,3 +1,5 @@
+
+
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -7,17 +9,17 @@ import 'package:video_player/video_player.dart';
 class VideoPlayerView extends StatefulWidget {
   final File vidoeFile;
   const VideoPlayerView({
-    Key key,
-    @required this.vidoeFile,
+    Key? key,
+    required this.vidoeFile,
   }) : super(key: key);
   @override
   _VideoPlayerViewState createState() => _VideoPlayerViewState();
 }
 
 class _VideoPlayerViewState extends State<VideoPlayerView> {
-  VideoPlayerController _controller;
-  Future<void> _initializedVideoPlayerFuture;
-  IconData _videoControllButton;
+  late VideoPlayerController _controller;
+  Future<void>? _initializedVideoPlayerFuture;
+  IconData? _videoControllButton;
 
   @override
   void initState() {

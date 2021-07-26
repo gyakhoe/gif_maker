@@ -1,3 +1,5 @@
+
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -6,16 +8,16 @@ import 'package:gif_maker/views/gif_maker_main_view.dart';
 import 'package:gif_maker/views/video_player_view.dart';
 
 class GifMakerChildView extends StatelessWidget {
-  final String _fileToDisplayPath;
-  final NatureOfFile _natureOfFile;
+  final String? _fileToDisplayPath;
+  final NatureOfFile? _natureOfFile;
   final Function _onUploadVideoPressed;
   final Function _onConvertGifPressed;
   const GifMakerChildView({
-    Key key,
-    @required String fileToDisplay,
-    @required Function onUploadVideoPresesed,
-    @required Function onConvertGifPressed,
-    @required NatureOfFile natureOfFile,
+    Key? key,
+    required String? fileToDisplay,
+    required Function onUploadVideoPresesed,
+    required Function onConvertGifPressed,
+    required NatureOfFile? natureOfFile,
   })  : _fileToDisplayPath = fileToDisplay,
         _onConvertGifPressed = onConvertGifPressed,
         _onUploadVideoPressed = onUploadVideoPresesed,
@@ -61,14 +63,14 @@ class GifMakerChildView extends StatelessWidget {
   Widget _buildFileView() {
     switch (_natureOfFile) {
       case NatureOfFile.Asset:
-        return Image.asset(_fileToDisplayPath);
+        return Image.asset(_fileToDisplayPath!);
 
       case NatureOfFile.Gif:
-        return Image.file(File(_fileToDisplayPath));
+        return Image.file(File(_fileToDisplayPath!));
 
       case NatureOfFile.Vidoe:
         return VideoPlayerView(
-          vidoeFile: File(_fileToDisplayPath),
+          vidoeFile: File(_fileToDisplayPath!),
         );
 
       case NatureOfFile.Identifying:
@@ -84,8 +86,8 @@ class GifMakerChildView extends StatelessWidget {
   Widget _imageSelectButton() {
     return SizedBox(
       width: 150,
-      child: RaisedButton(
-        onPressed: _onUploadVideoPressed,
+      child: MaterialButton(
+        onPressed: _onUploadVideoPressed as void Function()?,
         child: Text('Upload Video'),
       ),
     );
@@ -94,8 +96,8 @@ class GifMakerChildView extends StatelessWidget {
   Widget _convertToGifButton() {
     return SizedBox(
       width: 150,
-      child: RaisedButton(
-        onPressed: _onConvertGifPressed,
+      child: MaterialButton(
+        onPressed: _onConvertGifPressed as void Function()?,
         child: Text('Convert To GIF'),
       ),
     );

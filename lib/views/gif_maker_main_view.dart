@@ -1,3 +1,5 @@
+
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -8,13 +10,13 @@ import 'package:gif_maker/views/gif_maker_child_view.dart';
 
 class GifMakerMainView extends StatefulWidget {
   final String assetImagePath = 'assets/images/photo-placeholder-250.png';
-  final Directory _gifDirectory;
+  final Directory? _gifDirectory;
   final Function _onGifGeneratecallback;
 
   const GifMakerMainView({
-    Key key,
-    @required Directory gifDirectory,
-    @required Function onGifGenerateCallback,
+    Key? key,
+    required Directory? gifDirectory,
+    required Function onGifGenerateCallback,
   })  : _gifDirectory = gifDirectory,
         _onGifGeneratecallback = onGifGenerateCallback,
         super(key: key);
@@ -25,9 +27,9 @@ class GifMakerMainView extends StatefulWidget {
 enum NatureOfFile { Vidoe, Asset, Gif, Identifying }
 
 class _GifMakerMainState extends State<GifMakerMainView> {
-  String _filePath;
-  NatureOfFile _fileType;
-  FlutterFFmpeg _flutterFFmpeg;
+  String? _filePath;
+  NatureOfFile? _fileType;
+  late FlutterFFmpeg _flutterFFmpeg;
 
   @override
   void initState() {
@@ -52,7 +54,7 @@ class _GifMakerMainState extends State<GifMakerMainView> {
     setState(() {
       _fileType = NatureOfFile.Identifying;
     });
-    ImagePicker().getVideo(source: ImageSource.gallery).then((selectedVideo) {
+    ImagePicker().pickVideo(source: ImageSource.gallery).then((selectedVideo) {
       setState(() {
         if (selectedVideo != null) {
           _filePath = selectedVideo.path;
@@ -79,7 +81,7 @@ class _GifMakerMainState extends State<GifMakerMainView> {
       setState(() {
         _fileType = NatureOfFile.Identifying;
       });
-      final gifOutputFile = widget._gifDirectory.path +
+      final gifOutputFile = widget._gifDirectory!.path +
           '/' +
           DateTime.now().millisecondsSinceEpoch.toString() +
           '.gif';
@@ -116,10 +118,10 @@ class _GifMakerMainState extends State<GifMakerMainView> {
   }
 
   void _showErrorSnackBar({
-    @required String errorMessage,
+    required String errorMessage,
   }) {
-    Scaffold.of(context).hideCurrentSnackBar();
-    Scaffold.of(context).showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,3 +1,5 @@
+
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -11,10 +13,10 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _selectedIndex;
-  List<Widget> views;
-  List<String> generatedGifs;
-  Directory gifDirectory;
+  late int _selectedIndex;
+  late List<Widget> views;
+  List<String>? generatedGifs;
+  Directory? gifDirectory;
 
   @override
   void initState() {
@@ -28,12 +30,12 @@ class _HomeViewState extends State<HomeView> {
   void _loadRequiredData() {
     getApplicationDocumentsDirectory().then((directory) {
       gifDirectory = Directory(directory.path + '/gif');
-      gifDirectory.exists().then((exists) {
+      gifDirectory!.exists().then((exists) {
         if (!exists) {
-          gifDirectory.create();
+          gifDirectory!.create();
         } else {
           List<String> avilableGifs = [];
-          gifDirectory.list().listen((file) {
+          gifDirectory!.list().listen((file) {
             print('gif found here');
             File(file.path).length().then((value) {
               if (value > 0) {
@@ -101,7 +103,7 @@ class _HomeViewState extends State<HomeView> {
   void _onGifGenerated() async {
     print('we are here in onGifGenerated');
     List<String> avilableGifs = [];
-    gifDirectory.list().listen((file) {
+    gifDirectory!.list().listen((file) {
       print('gif found here');
       File(file.path).length().then((value) {
         if (value > 0) {

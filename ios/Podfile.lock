@@ -1,9 +1,9 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_ffmpeg (0.3.0):
+  - flutter_ffmpeg (0.4.0):
     - Flutter
-    - flutter_ffmpeg/https (= 0.3.0)
-  - flutter_ffmpeg/https (0.3.0):
+    - flutter_ffmpeg/https (= 0.4.0)
+  - flutter_ffmpeg/https (0.4.0):
     - Flutter
     - mobile-ffmpeg-https (= 4.4)
   - image_picker (0.0.1):
@@ -38,13 +38,13 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/video_player/ios"
 
 SPEC CHECKSUMS:
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_ffmpeg: 657ce8a1502c3d25bf34efc58b380b248836f772
-  image_picker: 9c3312491f862b28d21ecd8fdf0ee14e601b3f09
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_ffmpeg: bc8496ea20331e486cd29a03a3c6ff10d32db565
+  image_picker: e06f7a68f000bd36f552c1847e33cda96ed31f1f
   mobile-ffmpeg-https: 311fc4a8f671cf36d1d6b8f421e8246b790978d9
-  path_provider: d1a68c4065ce2e0f6fd03f8a46d698525dc79f06
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
 
 PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
